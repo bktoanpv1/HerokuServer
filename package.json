@@ -1,0 +1,31 @@
+{
+  "name": "heroku_server",
+  "version": "1.0.0",
+  "description": "This project will be deploy on Heroku platform",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "test",
+    "start": "nodemon --inspect src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bktoanpv1/HerokuServer.git"
+  },
+  "keywords": [
+    "HerokuServer"
+  ],
+  "author": "toanpv1",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bktoanpv1/HerokuServer/issues"
+  },
+  "homepage": "https://github.com/bktoanpv1/HerokuServer#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.5",
+    "mqtt": "^4.3.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
