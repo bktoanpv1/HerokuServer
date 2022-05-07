@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const morgan = require('morgan')
 const exhbs = require('express-handlebars');
-const { json } = require('express/lib/response');
+const routes = require('./controllers/routes/routes.js');
 const handlebars = exhbs.engine;
 const app = express();
 const PORT = 3000;
@@ -16,8 +16,9 @@ app.engine('.hbs',handlebars({extname: '.hbs'}));
 app.set('view engine','.hbs');
 app.set('views', path.join(__dirname,'resources','views'));
 console.log(__dirname);
+
+routes(app);
+app.get('/',function(req,res){
+    res.render('preview');
+});
 app.listen(PORT);
-app.get("/",function(req, res){
-    res.render('home');
-    }
-)
