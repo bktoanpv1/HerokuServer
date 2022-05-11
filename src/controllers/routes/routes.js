@@ -5,11 +5,8 @@ function routes(app){
   //Render view
   app.get('/pageContent',routesHandle.get_pageContent)
   app.get('/',routesHandle.get_preview);
-  // handle for POST method
-  app.post('/', (req, res) => {
-    res.send('POST request to the homepage')
-    console.log("Post me!")
-  })
+  //Handle for all mqtt request
+  app.post('/post/request',routesHandle.mqtt_handle);
 }
 // Export module
 module.exports = routes;

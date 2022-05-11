@@ -57,5 +57,25 @@
     {{!-- <script src="./resources/js/sb-admin-2.min.js"></script> --}}
     <script src="./resources/js/sb-admin-2.js"></script>
     {{!-- <script lang="javascript" src="./resources/javascript/javascript.js"></script>    --}}
+    <!-- Custom scripts for button -->
+    <script>
+        $(document).ready(function(){
+            $("#btn_1").click(function(){
+                $.post("post/request",
+                {
+                    "subject": "gpio/1",
+                    "message": "on",
+                },)
+            });
+
+            $("#btn_2").click(function(){
+                $.post("post/request",
+                {
+                    "subject": "gpio/1",
+                    "message": "off",
+                },)
+            });
+        });
+    </script>
 </body>
 </html>

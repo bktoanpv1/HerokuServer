@@ -23,7 +23,7 @@ function mqttClient_init(){
   client = mqtt.connect(options);
 
   client.on("connect", ack => {
-      console.log(ack);
+      // console.log(ack);
   });
 
   client.on("error", err => {

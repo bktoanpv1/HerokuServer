@@ -15,8 +15,18 @@ get_ = function (req,res){
 get_preview = function(req,res){
     res.render('preview');
 }
+
+mqtt_handle = function(req,res){
+    //Check valid of subject / message
+    console.log("Subject: " + req.body.subject);
+    console.log("Message: " + req.body.message);
+    //Send to borker
+    mqttClient.publish(req.body.subject,req.body.message);
+    res.send("Post accepted!");
+}
 module.exports = {
     get_ : get_,
     get_pageContent: get_pageContent,
     get_preview: get_preview,
+    mqtt_handle: mqtt_handle,
 };
