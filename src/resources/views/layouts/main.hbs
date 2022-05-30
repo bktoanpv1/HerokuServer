@@ -9,6 +9,7 @@
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
@@ -22,7 +23,7 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
         <!-- Sidebar -->
-        {{!-- {{> sidebar}} --}}
+        {{> sidebar}}
         <!-- End of Sidebar -->
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -59,22 +60,25 @@
     {{!-- <script lang="javascript" src="./resources/javascript/javascript.js"></script>    --}}
     <!-- Custom scripts for button -->
     <script>
+        function btn_handle(btnName,subject,message){
+            let btnClass = "." + btnName;
+            let btnId = "#" + btnName;
+            $(btnId).click(function(){
+                $.post("post/request",
+                {
+                    "subject": subject,
+                    "message": message,
+                },);
+                const element =  document.querySelector(btnClass);
+                element.classList.add('animated', 'pulse');
+                setTimeout(function() { 
+                element.classList.remove('pulse'); },
+                150); 
+                }); 
+        }
         $(document).ready(function(){
-            $("#btn_1").click(function(){
-                $.post("post/request",
-                {
-                    "subject": "gpio/1",
-                    "message": "on",
-                },)
-            });
-
-            $("#btn_2").click(function(){
-                $.post("post/request",
-                {
-                    "subject": "gpio/1",
-                    "message": "off",
-                },)
-            });
+            btn_handle("btn_11","gpio/1","on");
+            btn_handle("btn_10","gpio/1","off");
         });
     </script>
 </body>
